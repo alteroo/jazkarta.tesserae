@@ -7,6 +7,7 @@ from plone.uuid.interfaces import IUUID
 from Products.Five.browser.pagetemplatefile import ViewPageTemplateFile
 from zExceptions import Unauthorized
 from zope import schema
+from zope.schema.vocabulary import SimpleVocabulary, SimpleTerm
 from .config import IMAGE_NAMES
 from . import _
 
@@ -31,6 +32,19 @@ class IContentSummaryTile(model.Schema):
         default=False,
     )
 
+    display_mode = schema.Choice(
+        title=_(u'Display mode'),
+        vocabulary=SimpleVocabulary(
+            [
+                SimpleTerm(value=u'listing_view', title=_(u'Listing View')),
+                SimpleTerm(value=u'tile_view', title=_(u'Tile View'))
+            ]
+        ),
+        description=_(u'Select the type of tile to display the results in.'),
+        default='listing_view',
+        required=True
+    )
+
 
 class ContentSummaryTile(Tile):
     """Existing content tile
@@ -46,6 +60,7 @@ class ContentSummaryTile(Tile):
     def update(self):
         self.show_description = self.data.get('show_description', False)
         self.show_date = self.data.get('show_date', False)
+        self.display_mode = self.data.get('display_mode', 'listing_view')
 
     @property
     @memoize

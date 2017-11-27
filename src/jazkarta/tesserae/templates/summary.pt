@@ -12,7 +12,7 @@
                              title content/Title|nothing;
                              image_url python:view.image_url(content);
                              toLocalizedTime nocall:context/@@plone/toLocalizedTime;">
-    <div class="card" tal:condition="nocall:content">
+    <div class="card ${view/display_mode}" tal:condition="nocall:content">
         <div class="cardTop" tal:condition="image_url">
             <a href="${url}" title="${title}">
                 <img alt="${title}" src="${image_url}" />
