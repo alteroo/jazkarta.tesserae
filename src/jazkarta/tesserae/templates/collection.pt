@@ -11,7 +11,7 @@
                     title collection/Title|nothing;
                     description collection/Description|nothing;
                     results view/results;">
-    <div class="cards" tal:condition="results">
+    <div class="cards ${view/display_mode}" tal:condition="results">
         <div class="cardsTop" tal:condition="view/show_title">
             <h2 class="cardsTitle"><a href="${url}" title="${description}">${title}</a></h2>
             <a class="viewAll" href="${url}" title="${title}">View All</a>
