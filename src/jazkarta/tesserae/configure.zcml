@@ -48,7 +48,6 @@
 
   <genericsetup:upgradeDepends
       title="Add more display mode to mosaic content and collection summary tile form"
-      sortkey="1"
       source="1002"
       destination="1003"
       profile="jazkarta.tesserae:default"
