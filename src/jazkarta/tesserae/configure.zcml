@@ -46,6 +46,15 @@
     handler="plone.app.upgrade.utils.null_upgrade_step"
     />
 
+  <genericsetup:upgradeDepends
+      title="Add more display mode to mosaic content and collection summary tile form"
+      sortkey="1"
+      source="1002"
+      destination="1003"
+      profile="jazkarta.tesserae:default"
+      handler="plone.app.upgrade.utils.null_upgrade_step"
+      />
+
   <utility
       factory=".setuphandlers.HiddenProfiles"
       name="jazkarta.tesserae-hiddenprofiles" />
