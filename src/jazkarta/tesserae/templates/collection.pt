@@ -11,7 +11,10 @@
                     title collection/Title|nothing;
                     description collection/Description|nothing;
                     results view/results;">
-    <div class="cards" tal:condition="results">
+      
+    
+      
+    <div class="cards ${view/display_mode}" tal:condition="python: not view.allow_render and len(results) > 0">
         <div class="cardsTop" tal:condition="view/show_title">
             <h2 class="cardsTitle"><a href="${url}" title="${description}">${title}</a></h2>
             <a class="viewAll" href="${url}" title="${title}">View All</a>
@@ -20,5 +23,9 @@
             <metal:content use-macro="nocall:view/macro" />
         </tal:results>
     </div>
+    
+    <div tal:condition="python:view.allow_render" tal:replace="structure python:view.render()">Listing</div>  
+    
+    
   </body>
 </html>

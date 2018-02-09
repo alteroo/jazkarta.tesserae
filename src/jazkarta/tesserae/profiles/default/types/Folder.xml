@@ -9,4 +9,7 @@
          url_expr="string:${object_url}/@@tesserae-slider-config" visible="True">
     <permission value="Modify portal content" />
   </action>
+  <property name="behaviors">
+    <element value="plone.layoutaware"/>
+  </property>
 </object>
